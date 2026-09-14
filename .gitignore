@@ -1,0 +1,22 @@
+# Unreal generated output
+**/Binaries/
+**/Intermediate/
+**/Saved/
+**/DerivedDataCache/
+.vs/
+*.sln
+*.suo
+*.VC.db
+*.xcodeproj/
+# Local dependencies, credentials, packaged builds
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+Infrastructure/ThirdParty/
+Builds/
+TestResults/
+__pycache__/
+*.pyc
+

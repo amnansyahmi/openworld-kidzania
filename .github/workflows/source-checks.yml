@@ -1,0 +1,26 @@
+name: Source checks (not an Unreal build)
+on:
+  push:
+    branches: [main, feature/unreal-foundation, feature/browser-webgpu-benchmark]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: Web/package-lock.json
+      - name: Validate repository wiring
+        run: python3 Tests/check_repository.py
+      - name: Test native job rules
+        run: |
+          g++ -std=c++20 -Wall -Wextra -Werror -I Unreal/Source/KidzCity/Public Tests/job_rules_test.cpp -o /tmp/kidzcity-rules
+          /tmp/kidzcity-rules
+      - run: npm ci --prefix Web
+      - run: npm run build --prefix Web
+      - run: npm test --prefix Web

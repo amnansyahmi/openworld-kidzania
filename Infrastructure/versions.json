@@ -1,0 +1,10 @@
+{
+  "unreal": "5.7",
+  "pixelStreamingPlugin": "PixelStreaming2",
+  "infrastructureRepository": "https://github.com/EpicGames/PixelStreamingInfrastructure.git",
+  "infrastructureBranch": "UE5.7",
+  "infrastructureCommit": "aa4972e5c9d53b0032d4f209e3f7728218b6213f",
+  "frontendPackage": "@epicgames-ps/lib-pixelstreamingfrontend-ue5.7",
+  "frontendVersion": "0.3.1",
+  "verifiedAgainstUpstream": "2026-09-14"
+}

@@ -1,0 +1,16 @@
+{
+  "map": "/Game/Maps/L_Downtown",
+  "gameMode": "/Game/Core/BP_CityGameMode",
+  "playerStart": [0, -800, 110],
+  "actors": [
+    { "id": "DowntownEnvironment", "blueprint": "/Game/Environment/BP_DowntownEnvironment", "position": [0, 0, 0], "yaw": 0 },
+    { "id": "Hospital", "blueprint": "/Game/Locations/BP_Hospital", "position": [-5000, 3500, 0], "yaw": 0 },
+    { "id": "FireStation", "blueprint": "/Game/Locations/BP_FireStation", "position": [5000, 3500, 0], "yaw": 180 },
+    { "id": "Restaurant", "blueprint": "/Game/Locations/BP_Restaurant", "position": [-5000, -3500, 0], "yaw": 0 },
+    { "id": "Supermarket", "blueprint": "/Game/Locations/BP_Supermarket", "position": [5000, -3500, 0], "yaw": 180 },
+    { "id": "Bank", "blueprint": "/Game/Locations/BP_Bank", "position": [0, 8000, 0], "yaw": -90 },
+    { "id": "PlayerCar", "blueprint": "/Game/Vehicles/BP_CityCar", "position": [900, -900, 80], "yaw": 90 },
+    { "id": "Pedestrian_A", "blueprint": "/Game/Characters/BP_Citizen", "position": [-1500, 500, 100], "yaw": 0 },
+    { "id": "Pedestrian_B", "blueprint": "/Game/Characters/BP_Citizen", "position": [1500, 500, 100], "yaw": 180 }
+  ]
+}

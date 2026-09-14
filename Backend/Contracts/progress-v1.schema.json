@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:kidzcity:progress:v1",
+  "title": "Future KidzCity profile snapshot (not the local SaveGame encoding)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "profileId", "coins", "careerXP", "receipts"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "profileId": { "type": "string", "format": "uuid" },
+    "coins": { "type": "string", "pattern": "^(0|[1-9][0-9]{0,18})$", "description": "Int64 encoded as decimal text to avoid JavaScript precision loss. Server enforces int64 range." },
+    "careerXP": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "doctor": { "type": "integer", "minimum": 0, "maximum": 2147483647 },
+        "firefighter": { "type": "integer", "minimum": 0, "maximum": 2147483647 },
+        "restaurant": { "type": "integer", "minimum": 0, "maximum": 2147483647 }
+      }
+    },
+    "receipts": {
+      "type": "array", "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "jobId", "coins"],
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "jobId": { "type": "string", "minLength": 1, "maxLength": 96 },
+          "coins": { "type": "integer", "minimum": 1 }
+        }
+      }
+    }
+  }
+}
