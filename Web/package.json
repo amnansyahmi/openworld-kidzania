@@ -1,5 +1,5 @@
 {
-  "name": "kidzcity-launcher",
+  "name": "kidzcity-browser-benchmark",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -9,7 +9,11 @@
     "preview": "vite preview --host 127.0.0.1",
     "test": "node --experimental-strip-types --test test/*.test.ts"
   },
-  "dependencies": { "@epicgames-ps/lib-pixelstreamingfrontend-ue5.7": "0.3.1" },
+  "dependencies": {
+    "@babylonjs/core": "^8.32.0",
+    "@babylonjs/loaders": "^8.32.0",
+    "@dimforge/rapier3d-compat": "^0.16.0"
+  },
   "devDependencies": { "typescript": "5.9.3", "vite": "6.4.1" },
   "engines": { "node": ">=22.18.0" }
 }

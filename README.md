@@ -33,6 +33,6 @@ npm run build --prefix Web
 npm test --prefix Web
 ```
 
-Start the launcher with `npm run dev --prefix Web` and open the address Vite prints (normally `http://127.0.0.1:5173`). Without the local Unreal game and signalling process, Play reports a connection failure. It does not run a substitute JavaScript game.
+The browser-native benchmark is on `feature/browser-webgpu-benchmark`. Start it with `npm run dev --prefix Web`; it renders directly in the browser. The Unreal Pixel Streaming launcher remains on `feature/unreal-foundation`.
 
 Project source and third-party assets have separate ownership/licensing requirements; see [asset policy](Docs/ART_DIRECTION.md). The GitHub repository name is historical context only; in-game naming and creative content use the original KidzCity concept.
