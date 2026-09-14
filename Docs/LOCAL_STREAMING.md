@@ -55,7 +55,7 @@ npm run dev --prefix Web
 
 Open the address printed by Vite and click **Play game**. If audio/video autoplay is blocked, click **Start video and audio**. Click inside the game to enable input. Escape releases pointer lock. Disconnect ends the browser connection, not the Unreal process. Stop the game and signalling terminals when finished.
 
-The signalling script allows only one browser subscriber. It uses explicit modern `--player_port` and `--streamer_port` flags, not legacy `HttpPort` configuration. It invokes the upstream built JS directly so upstream `npm start` HTTPS-redirect defaults do not alter the local setup.
+The signalling script allows only one browser subscriber. It uses explicit modern `--player_port` and `--streamer_port` flags, not legacy `HttpPort` configuration. It loads ICE settings from `local-peer-options.json` to avoid PowerShell/Windows native-command JSON quoting differences. It invokes the upstream built JS directly so upstream `npm start` HTTPS-redirect defaults do not alter the local setup.
 
 ## Graphics and connection quality
 
@@ -82,7 +82,7 @@ Desktop keyboard/mouse is the first input target. Touch/gamepad control and mobi
 
 ## Network boundaries and later deployment
 
-The web development server binds loopback. Upstream signalling may listen on all interfaces; its `public_ip` is an advertised address, not a bind restriction. Keep the development PC firewall restricting inbound access. This setup has no authentication and should not be exposed publicly. It creates no firewall rules automatically.
+The web development server binds loopback. Upstream signalling may listen on all interfaces; using loopback connection URLs is not a listener bind restriction. Keep the development PC firewall restricting inbound access. This setup has no authentication and should not be exposed publicly. It creates no firewall rules automatically.
 
 LAN testing requires explicit listening/address configuration and firewall scope; `127.0.0.1` in another device means that device, not the game PC. Cross-network testing usually needs STUN/TURN and secured signalling. Those services are deliberately deferred. Future public sessions require authenticated tickets, per-user game processes/save namespaces, admission/idle limits, restart cleanup and capacity/cost planning.
 
