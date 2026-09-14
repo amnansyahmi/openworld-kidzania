@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="theme-color" content="#102b31" />
+    <title>KidzCity — Downtown</title>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/" aria-label="KidzCity home">KidzCity<span>DOWNTOWN</span></a>
+      <nav aria-label="Main navigation">
+        <button disabled title="Available in a later milestone">Profile</button>
+        <button disabled title="Available after character customisation is added">Character</button>
+        <button id="settings">Settings</button>
+        <button disabled title="This milestone uses a local save">Login</button>
+      </nav>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="title">
+        <p class="eyebrow">EXPLORE · LEARN · BELONG</p>
+        <h1 id="title">Your city.<br>Your next adventure.</h1>
+        <p>A new day in Downtown starts with you.</p>
+        <div class="actions">
+          <button class="primary" id="play">Play game <span aria-hidden="true">→</span></button>
+          <button id="leave" disabled>Disconnect</button>
+        </div>
+        <p id="status" role="status" aria-live="polite">Ready to connect to your local game.</p>
+      </section>
+      <section class="game" aria-label="Game stream">
+        <div id="viewport" tabindex="0" aria-label="Game controls. Click to capture the mouse; Escape releases it."></div>
+        <div id="empty">
+          <span class="wordmark">KidzCity</span>
+          <p>Your game appears here when connected.</p>
+          <small>Development build · requires the local Unreal game and streaming server</small>
+        </div>
+        <button id="resume" class="primary" hidden>Start video and audio</button>
+      </section>
+      <footer>
+        <p><kbd>W A S D</kbd> Move <kbd>Mouse</kbd> Look <kbd>Shift</kbd> Run <kbd>E</kbd> Interact <kbd>Space</kbd> Jump</p>
+        <button id="fullscreen" disabled>Full screen</button>
+      </footer>
+    </main>
+    <dialog id="preferences">
+      <h2>Stream settings</h2>
+      <label for="quality">Connection quality</label>
+      <select id="quality">
+        <option value="high">High — 60 FPS target</option>
+        <option value="balanced">Balanced — lower bandwidth</option>
+        <option value="mobile">Mobile — 30 FPS target</option>
+      </select>
+      <p>Applies on the next connection. Actual quality depends on your computer and network.</p>
+      <button class="primary" id="close-settings">Done</button>
+    </dialog>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
