@@ -1,7 +1,7 @@
 name: Source checks (not an Unreal build)
 on:
   push:
-    branches: [main, feature/unreal-foundation]
+    branches: [main, feature/unreal-foundation, feature/browser-webgpu-benchmark]
   pull_request:
 permissions:
   contents: read

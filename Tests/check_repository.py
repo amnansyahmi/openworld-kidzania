@@ -8,7 +8,14 @@ project = json.loads((root / 'Unreal/KidzCity.uproject').read_text())
 package = json.loads((root / 'Web/package.json').read_text())
 assert project['EngineAssociation'] == versions['unreal']
 assert any(p['Name'] == versions['pixelStreamingPlugin'] and p['Enabled'] for p in project['Plugins'])
-assert package['dependencies'][versions['frontendPackage']] == versions['frontendVersion']
+if versions['frontendPackage'] in package['dependencies']:
+    # Unreal/Pixel Streaming route.
+    assert package['dependencies'][versions['frontendPackage']] == versions['frontendVersion']
+else:
+    # Browser-native route. Babylon is intentionally a different runtime from Pixel Streaming.
+    assert package['dependencies'].get('@babylonjs/core', '').startswith('^8.')
+    assert package['dependencies'].get('@babylonjs/loaders', '').startswith('^8.')
+    assert '@dimforge/rapier3d-compat' in package['dependencies']
 assert len(versions['infrastructureCommit']) == 40
 for path in (root / 'Unreal/Source').rglob('*.h'):
     includes = [line for line in path.read_text().splitlines() if line.startswith('#include')]
